@@ -24,7 +24,7 @@ JS for selecting HTML elements from the dom:
 var listNum=8;//to add to the list the next number
 
 var addElementCallback=function(e){
-  var list=document.getElementById("thelist");
+  var list=document.getElementById("thelist");//<ol id="thelist">
   var newElem=document.createElement("li");
   newElem.innerHTML='item '+ listNum;//item 8
   list.appendChild(newElem);
@@ -35,35 +35,12 @@ var addElementCallback=function(e){
 var addElementButton = document.getElementById('b');
 addElementButton.addEventListener('click', addElementCallback);
 
-/*
-var addElement = function(list, el){
-    list.push(el);
-    //console.log(el + " has just been pushed to the list (" + list + ")");
-    return list;
-};
-
-
-//Callback button for randomStudent
-//Returns 1 (one) random name from the list
-var addElementCallback = function(e){
-    element = "b" + Math.floor(Math.random(25)*50);
-    console.log("\nWe are adding " + element + " to the list (" + list + ")");
-    console.log("addElement ->" + addElement(list, element));
-};
-//Event listener for randStudent
-var addElementButton = document.getElementById('b');
-addElementButton.addEventListener('click', addElementCallback);
-
-var mouseOverCallback=function(e){
-  var heading= document.getElementbyID('h');
-  heading.innerHTML= this.innerHTML;
-};
 
 var returnCallback=function(e){
   var heading= document.getElementbyID('h');
   heading.innerHTML="Hello World!";
 };
-*/
+
 
 //SIGNING OFF
 console.log("This has been a production by Bayan & Ibnul");
