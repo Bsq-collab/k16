@@ -6,7 +6,6 @@
 var listNum=8;//to add to the list the next number
 var list=document.getElementById('thelist');//<ol id='thelist'>
 
-var secListNum = 1;
 
 //Adding elements function
 var addElementCallback=function(e){
@@ -59,43 +58,34 @@ while (i<list.length){
 //SIGNING OFF
 console.log("This has been a production by Bayan & Ibnul");
 
+
+var addFibonacciCallback = function() {
+  console.log("calling fib callback");
+  var newElem = document.createElement("li");
+  newElem.innerHTML=fibonacci(secListNum);
+  list2.appendChild(newElem);
+  console.log("added the "+ secListNum+"th fib num");
+  secListNum+=1;
+};
+
+
+var secListNum = 1;
 var list2=document.getElementById('2ndlist');//<ol id='thelist'>
 var addElementButton2 = document.getElementById('b2');
 addElementButton2.addEventListener("click", addFibonacciCallback);
 
-/*
-var addFibonacciCallback = function(n){
-    var newElem=document.createElement("li");
-    newElem.innerHTML=secListNum;//item 8
-    
-    var secList = document.getElementById('2ndlist');
-    secList.innerHTML= this.innerHTML;
-    secList.appendChild(fibonacci(secListNum));
-    console.log("Fibonacci Number added " + secListNum );
-    secListNum+=1;
-
-};
-*/
-var addFibonacciCallback = function(n) {
-    var newElem = document.createElement("li");
-    newElem.innerHTML=fibonacci(secListNum);
-    list2.appendChild(newElem);
-    console.log("added the " + secListNum + "th fib num" + );
-    secListNum+=1;
-};
-
 
 var fibonacci= function(n){
-    if(n<0){
-	return "Sorry, you cannot find a negative fibonacci term";
-    };
-    if(n==0){
-	return 0;
-    };
-    if(n==1){
-	return 1;
-    };
-    return fibonacci(n-1)+fibonacci(n-2);
+  if(n<0){
+	  return "Sorry, you cannot find a negative fibonacci term";
+  };
+  if(n==0){
+	  return 0;
+  };
+  if(n==1){
+	  return 1;
+  };
+  return fibonacci(n-1)+fibonacci(n-2);
 };
 
 /*
