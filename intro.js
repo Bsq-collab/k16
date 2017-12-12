@@ -96,18 +96,49 @@ var addElementButton2 = document.getElementById('b2');
 addElementButton2.addEventListener("click", addFibonacciCallback);
 
 
-var fibonacci= function(n){
-  if(n<0){
-	  return "Sorry, you cannot find a negative fibonacci term";
-  };
-  if(n==0){
-	  return 0;
-  };
-  if(n==1){
-	  return 1;
-  };
-  return fibonacci(n-1)+fibonacci(n-2);
+//Adding Lucas Numbers to the Third List Section
+
+//Callback function
+var addLucasCallback = function() {
+    console.log("calling fib callback");
+    //creates a list item to be appended later
+    var newElem = document.createElement("li");
+   
+    var listThree=document.getElementById('3rdlist');//<ol id='2ndlist'>
+    listThreeItems = listThree.getElementsByTagName("LI");
+    
+    //tries to check for the last two items currently on the list
+    //if the list doesn't have two items, it defaults to the catch
+    try{
+	lastNum = listThreeItems[listThreeItems.length-1].innerHTML;
+	secLastNum = listThreeItems[listThreeItems.length-2].innerHTML;
+	newElem.innerHTML = parseInt(lastNum) + parseInt(secLastNum);
+	console.log("last 2 nums: " + lastNum + "," + secLastNum + "");
+    }
+    //makes the new list item to add the number 1
+    //this works because the first two fibonacci numbers are 1
+    catch(e){
+	try{
+	    lastNum = listThreeItems[listThreeItems.length-1].innerHTML;
+	    newElem.innerHTML = 1;
+	}
+	catch(e){
+	    newElem.innerHTML = 2;
+	}
+    }
+    
+    list3.appendChild(newElem);
+    console.log("added lucas("+ secListNum+")");
+    thirdListNum+=1;
 };
+
+
+var thirdListNum = 1;
+var list3=document.getElementById('3rdlist');//<ol id='thelist'>
+var addElementButton3 = document.getElementById('b3');
+addElementButton3.addEventListener("click", addLucasCallback);
+
+
 
 /*
   NOTES
