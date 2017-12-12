@@ -59,13 +59,34 @@ while (i<list.length){
 console.log("This has been a production by Bayan & Ibnul");
 
 
+//Adding Fibonacci Numbers to the Second List Section
+
+//Callback function
 var addFibonacciCallback = function() {
-  console.log("calling fib callback");
-  var newElem = document.createElement("li");
-  newElem.innerHTML=fibonacci(secListNum);
-  list2.appendChild(newElem);
-  console.log("added the "+ secListNum+"th fib num");
-  secListNum+=1;
+    console.log("calling fib callback");
+    //creates a list item to be appended later
+    var newElem = document.createElement("li");
+   
+    var listTwo=document.getElementById('2ndlist');//<ol id='2ndlist'>
+    listTwoItems = listTwo.getElementsByTagName("LI");
+    
+    //tries to check for the last two items currently on the list
+    //if the list doesn't have two items, it defaults to the catch
+    try{
+	lastNum = listTwoItems[listTwoItems.length-1].innerHTML
+	secLastNum = listTwoItems[listTwoItems.length-2].innerHTML
+	newElem.innerHTML = parseInt(lastNum) + parseInt(secLastNum);
+	console.log("last 2 nums: " + lastNum + "," + secLastNum + "");
+    }
+    //makes the new list item to add the number 1
+    //this works because the first two fibonacci numbers are 1
+    catch(e){
+	newElem.innerHTML = 1;
+    }
+    
+    list2.appendChild(newElem);
+    console.log("added fibonacci("+ secListNum+")");
+    secListNum+=1;
 };
 
 
